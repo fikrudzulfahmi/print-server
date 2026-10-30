@@ -57,11 +57,14 @@ find_uri() {
 }
 
 # coba sampai 20x (perangkat USB kadang muncul belakangan)
+READY=0
 for i in $(seq 1 20); do
   U="$(find_uri)"
-  if [ -n "$U" ] && setup_queue "$U"; then break; fi
+  if [ -n "$U" ] && setup_queue "$U"; then READY=1; break; fi
+  log "percobaan ${i}/20: printer USB belum terdeteksi (cek kabel/power)"
   sleep 3
 done
+[ "$READY" = 1 ] || log "PERINGATAN: antrian belum dibuat. Colok printer lalu: docker compose restart cups"
 
 # --- 3. port RAW 9100 / 9101 untuk client Windows (JetDirect) ---
 start_raw() {
