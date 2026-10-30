@@ -1,5 +1,6 @@
 # Print Server (CUPS + JetDirect)
 
+> **Panduan instalasi lengkap (urutan 4 repo):** [`PANDUAN-INSTALASI.md`](https://github.com/fikrudzulfahmi/ngemis-ai-infra/blob/main/docs/PANDUAN-INSTALASI.md)
 Appliance print server untuk printer USB (contoh: Epson L120) supaya bisa dipakai
 banyak PC Windows di LAN. Dua jalur cetak:
 
