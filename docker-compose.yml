@@ -1,0 +1,26 @@
+services:
+  cups:
+    build:
+      context: ./docker
+    image: print-server:latest
+    container_name: print-server
+    restart: unless-stopped
+    network_mode: host          # Windows client butuh 631 + 9100/9101 langsung di LAN
+    devices:
+      - /dev/bus/usb:/dev/bus/usb   # printer USB
+    env_file:
+      - ./data/.env
+    volumes:
+      - cups_etc:/etc/cups
+      - cups_log:/var/log/cups
+    healthcheck:
+      test: ["CMD-SHELL", "lpstat -r || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  cups_etc:
+    name: cups_etc
+  cups_log:
+    name: cups_log     # dipakai bersama container server-monitor

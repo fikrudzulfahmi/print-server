@@ -1,0 +1,6 @@
+.env
+data/
+*.zip
+client/driver/x64/*
+client/driver/x86/*
+!client/driver/BACA.txt

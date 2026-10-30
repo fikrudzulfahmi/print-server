@@ -1,0 +1,4 @@
+Driver Epson TIDAK wajib.
+Tanpa driver: .bat otomatis pakai driver bawaan Windows (port 9101).
+Opsional (kualitas terbaik): jalankan Ambil-Driver.bat di laptop yang sudah
+bisa print, hasilnya driver\x64\inf, lalu copy folder ini ke PC lain.
